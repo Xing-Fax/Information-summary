@@ -22,8 +22,8 @@
 
 编译好的文件链接：
 
-蓝奏云：
+蓝奏云：https://wwe.lanzoui.com/b01oha7uf 密码:9d7r
 
-百度云：
+百度云：https://pan.baidu.com/s/1TT8k5Pw3WITv0o0vVjZ0AQ 提取码:qsen 
 
 缺点：如果对一个被占用的文件进行摘要生成会造成卡进度条，以后会想解决方案去解决它
