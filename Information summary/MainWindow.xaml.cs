@@ -121,11 +121,11 @@ namespace Information_summary
         {
             InitializeComponent();
             //校验自身
-            if (Checkx.Document_verification(Process.GetCurrentProcess().MainModule.FileName) != true)
-            {
-                MessageBox.Show("签名校验失败,程序可能被篡改,轻击确定以退出程序", "警告");
-                Environment.Exit(0);
-            }
+            //if (Checkx.Document_verification(Process.GetCurrentProcess().MainModule.FileName) != true)
+            //{
+            //    MessageBox.Show("签名校验失败,程序可能被篡改,轻击确定以退出程序", "警告");
+            //    Environment.Exit(0);
+            //}
             #region
             前端显示.IsChecked = Properties.Settings.Default.前端显示;
             名称.IsChecked = Properties.Settings.Default.文件名称;
@@ -318,7 +318,7 @@ namespace Information_summary
 
                 if (((bool[])(e.Argument))[8])
                 {
-                    str= "SHA1值：    " + Digest_algorithm.SHA1.SHA1File(Number_file[i].ToString()) + "\n";
+                    str= "SHA1值：    " + Digest_algorithm.SHA1.Hash_SHA_1(Number_file[i].ToString()) + "\n";
                     Assignment(str);
                 }
 
