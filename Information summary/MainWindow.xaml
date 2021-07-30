@@ -1,0 +1,291 @@
+﻿<Window x:Name="主窗体" x:Class="Information_summary.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xv="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Information_summary"
+        mc:Ignorable="d"
+        Title="文件信息摘要工具" Height="407" Width="564" ResizeMode="NoResize"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{x:Null}"
+        FontFamily="{DynamicResource MaterialDesignFont}" AllowsTransparency="True" WindowStyle="None" Foreground="Black" WindowStartupLocation="CenterScreen" SnapsToDevicePixels="True" AllowDrop="True" DragEnter="主窗体_DragEnter" DragLeave="主窗体_DragLeave" Icon="512x512.ico">
+
+    <Window.Resources>
+        <SolidColorBrush xv:Key="PrimaryHueLightBrush" Color="#00FFFFFF"/>
+        <SolidColorBrush xv:Key="PrimaryHueLightForegroundBrush" Color="#333333"/>
+        <SolidColorBrush xv:Key="PrimaryHueMidBrush" Color="#0288d1"/>
+        <SolidColorBrush xv:Key="PrimaryHueMidForegroundBrush" Color="#FFFFFF"/>
+        <SolidColorBrush xv:Key="PrimaryHueDarkBrush" Color="#00FFFFFF"/>
+        <SolidColorBrush xv:Key="PrimaryHueDarkForegroundBrush" Color="#FFFFFF"/>
+        <!--ACCENT-->
+        <SolidColorBrush xv:Key="SecondaryAccentBrush" Color="#689f38"/>
+        <SolidColorBrush xv:Key="SecondaryAccentForegroundBrush" Color="#FFFFFF"/>
+        <Storyboard x:Key="设置打开">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="算法">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.57">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="算法">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.515">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="算法">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="算法">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="算法">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="算法">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="主体遮罩">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="主体遮罩">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.5"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="设置关闭">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="算法">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.57">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="算法">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.515">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="算法">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="算法">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="算法">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{xv:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="算法">
+                <SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="主体遮罩">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="主体遮罩">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0.5"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard xv:Key="提示打开">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="提示">
+                <EasingDoubleKeyFrame KeyTime="0" Value="61.272">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.333">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.4" Value="0.333"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="56.833">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="提示">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{xv:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{xv:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:3.4" Value="{xv:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Grid x:Name="主体" AllowDrop="True">
+        <Rectangle x:Name="主体背景" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="407" Stroke="{Binding Background, ElementName=添加}" VerticalAlignment="Top" Width="564" RadiusX="5" RadiusY="5"/>
+        <Grid x:Name="按钮" Margin="10,35,9,337">
+
+            <Button x:Name="添加" Content="添加文件" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="105" Click="添加_Click"/>
+            <Button x:Name="清除" Content="清除日志" HorizontalAlignment="Left" Height="35" Margin="110,0,0,0" VerticalAlignment="Top" Width="105" Click="清除_Click"/>
+            <Button x:Name="复制" Content="复制信息" HorizontalAlignment="Left" Height="35" Margin="220,0,0,0" VerticalAlignment="Top" Width="105" Click="复制_Click"/>
+            <Button x:Name="保存" Content="保存文件" HorizontalAlignment="Left" Height="35" Margin="330,0,0,0" VerticalAlignment="Top" Width="105" Click="保存_Click"/>
+            <Button x:Name="设置" Content="摘要算法" HorizontalAlignment="Left" Height="35" Margin="440,0,0,0" VerticalAlignment="Top" Width="105" Click="设置_Click"/>
+        </Grid>
+        <Grid x:Name="输出" Margin="10,75,10,10">
+            <ScrollViewer xv:Name="框" HorizontalAlignment="Left" Height="322" VerticalAlignment="Top" Width="545" Margin="0,0,-1,0" HorizontalScrollBarVisibility="Visible" AllowDrop="True" Foreground="Black">
+                <TextBox xv:Name="输出信息" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalScrollBarVisibility= "Visible" BorderBrush="{xv:Null}" CaretBrush="#FF0288D1" MinWidth="520" MinHeight="322" FontFamily="微软雅黑" AllowDrop="True" Background="#02000000" />
+
+            </ScrollViewer>
+            <Rectangle xv:Name="输出背景" HorizontalAlignment="Left" Height="324.005" Stroke="{Binding Background, ElementName=添加}" VerticalAlignment="Top" Width="546.986" Margin="-0.98,-1,-2.006,-1.005" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" SnapsToDevicePixels="True"/>
+        </Grid>
+        <Grid x:Name="标题" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="564" MouseMove="标题_MouseMove" Background="#00000000">
+            <ProgressBar x:Name="加载条" Margin="10,27.333,9,-1.334" Background="{xv:Null}" BorderBrush="{xv:Null}" Foreground="{Binding Background, ElementName=添加}" />
+            <materialDesign:PackIcon x:Name="标题图标" Kind="InformationOutline" HorizontalAlignment="Left" Height="20" Margin="5,5,0,0" VerticalAlignment="Top" Width="22.25" Foreground="{Binding Background, ElementName=添加}"/>
+            <Label x:Name="标题文本" Content="文件信息摘要生成" HorizontalAlignment="Left" Height="27.75" Margin="32.25,2.25,0,0" VerticalAlignment="Top" Width="127.75" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="14"/>
+            <Button x:Name="关闭窗体" Style="{StaticResource MaterialDesignIconButton}" ToolTip="关闭" Margin="532.664,1.333,1.335,-1.334" Height="30" Width="30" Foreground="{Binding Background, ElementName=添加}" Click="关闭窗体_Click">
+                <materialDesign:PackIcon Kind="Close"  />
+            </Button>
+            <Button x:Name="最小化" Style="{StaticResource MaterialDesignIconButton}" ToolTip="关闭" Margin="502.664,1.334,31.335,-1.333" Height="30" Width="30" Foreground="{Binding Background, ElementName=添加}" Click="最小化_Click">
+                <materialDesign:PackIcon Kind="Minus"  />
+            </Button>
+            <ToggleButton x:Name="前端显示"
+  Style="{StaticResource MaterialDesignSwitchToggleButton}"
+  ToolTip="前端显示" Margin="457.664,4.25,61.336,0.75" Click="ToggleButton_Click">
+                <materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+      Kind="Pin" />
+                </materialDesign:ToggleButtonAssist.OnContent>
+                <materialDesign:PackIcon
+    Kind="Pin"
+    RenderTransformOrigin=".5,.5" HorizontalAlignment="Left">
+                    <materialDesign:PackIcon.RenderTransform>
+                        <RotateTransform
+        Angle="45" />
+                    </materialDesign:PackIcon.RenderTransform>
+                </materialDesign:PackIcon>
+            </ToggleButton>
+
+        </Grid>
+        <Rectangle x:Name="主体遮罩" Fill="Black" HorizontalAlignment="Left" Height="407" Stroke="{Binding Background, ElementName=添加}" VerticalAlignment="Top" Width="564" RadiusX="5" RadiusY="5" Visibility="Collapsed"/>
+        <Grid x:Name="算法" Margin="40,55" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Rectangle x:Name="算法背景" Fill="White" HorizontalAlignment="Left" Height="297" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="484" Stroke="{Binding Background, ElementName=添加}"/>
+            <Label x:Name="算法标题" Content="你可以在这里选择生成摘要的详细设置" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,0,0,0" Width="290" Height="30" FontWeight="Bold" FontSize="16" FontFamily="微软雅黑" VerticalContentAlignment="Bottom"/>
+            <materialDesign:PackIcon x:Name="算法图标" Kind="CogOutline" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="30" Margin="0,3.33,0,0" Foreground="{Binding Background, ElementName=添加}"/>
+            <Rectangle x:Name="算法边框" HorizontalAlignment="Left" Height="252" Margin="10,35,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="464" Stroke="{Binding Background, ElementName=添加}"/>
+            <Button x:Name="关闭算法" Style="{StaticResource MaterialDesignIconButton}" ToolTip="关闭" Margin="450.667,3.33,3.332,263.67" Height="30" Width="30" Foreground="{Binding Background, ElementName=添加}" Click="关闭算法_Click">
+                <materialDesign:PackIcon Kind="Close"  />
+            </Button>
+            <Canvas x:Name="文件选择" Margin="20,46.4,314,47">
+                <CheckBox x:Name="名称" Content="文件名称" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="23.6" Width="140" />
+                <CheckBox x:Name="大小" Content="文件大小" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="53.6" Width="140" />
+                <CheckBox x:Name="创建" Content="创建时间" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="83.6" Width="140" />
+                <CheckBox x:Name="修改" Content="修改时间" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="113.6" Width="140" />
+                <CheckBox x:Name="版本" Content="版本信息" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="143.6" Width="140" />
+                <CheckBox x:Name="类型" Content="文件类型" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="173.6" Width="140" />
+                <Label x:Name="文件信息" Content="文件信息：" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
+            </Canvas>
+            <Canvas x:Name="算法选择" Margin="170,46.4,164,47">
+                <CheckBox x:Name="MD5" Content="MD5" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="23.6" Width="140" />
+                <CheckBox x:Name="CRC32" Content="CRC32" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="53.6" Width="140" />
+                <CheckBox x:Name="SHA1" Content="SHA-1" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="83.6" Width="140" />
+                <CheckBox x:Name="SHA256" Content="SHA-256" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="113.6" Width="140" />
+                <CheckBox x:Name="SHA384" Content="SHA-384" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="143.6" Width="140" />
+                <CheckBox x:Name="SHA512" Content="SHA-512" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="173.6" Width="140" />
+                <Label x:Name="摘要算法" Content="摘要算法：" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
+            </Canvas>
+        </Grid>
+        <Grid xv:Name="提示" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="100" Margin="232,360,0,0" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Rectangle xv:Name="提示背景" HorizontalAlignment="Left" Height="30" Stroke="Black" VerticalAlignment="Top" Width="100" Fill="{Binding Background, ElementName=添加}" RadiusY="5" RadiusX="5"/>
+            <Label xv:Name="提示信息" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
+        </Grid>
+        <Grid xv:Name="拖放" AllowDrop="True" Drop="拖放_Drop" Visibility="Collapsed">
+            <Rectangle xv:Name="拖放背景" HorizontalAlignment="Left" Height="407" Stroke="{Binding Background, ElementName=添加}" VerticalAlignment="Top" Width="564" RadiusX="5" RadiusY="5" AllowDrop="True">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="#FF747474" Opacity="0.5"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="松开鼠标按键以完拖放！" VerticalAlignment="Top" Margin="0,80,0,0" Height="45" Width="564" TextAlignment="Center" FontSize="24" FontFamily="微软雅黑"/>
+            <Rectangle xv:Name="rectangle" Stroke="#FF000000" StrokeThickness="3" StrokeDashArray="2 2"
+                                                       SnapsToDevicePixels="True" Margin="75,130,75,92" RadiusX="5" RadiusY="5"/>
+        </Grid>
+
+    </Grid>
+</Window>
