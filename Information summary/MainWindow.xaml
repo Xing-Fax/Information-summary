@@ -263,6 +263,7 @@
                 <CheckBox x:Name="SHA512" Content="SHA-512" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="173.6" Width="140" />
                 <Label x:Name="摘要算法" Content="摘要算法：" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
             </Canvas>
+            <Label xv:Name="版权" Content="Copyright © xcz  2021" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="307.923,263.4,0,0" Width="166.077" HorizontalContentAlignment="Right" MouseUp="版权_MouseUp"/>
         </Grid>
         <Grid xv:Name="提示" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="100" Margin="232,360,0,0" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>

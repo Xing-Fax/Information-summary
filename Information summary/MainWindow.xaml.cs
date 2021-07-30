@@ -210,19 +210,33 @@ namespace Information_summary
 
         private void 保存_Click(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog sf1 = new SaveFileDialog();
-            sf1.Title = "保存导出文件";
-            sf1.FileName = "信息摘要导出.txt";
-            sf1.Filter = "txt文档|*.txt";
-            if (sf1.ShowDialog(this) == true)
+            if (输出信息.Text.Length > 5)
             {
-                StreamWriter sw = new StreamWriter(sf1.FileName, true, Encoding.UTF8);
-                sw.Write(输出信息.Text);
-                sw.Flush();
-                sw.Close();
-                提示信息.Content = "保存完成!";
+                SaveFileDialog sf1 = new SaveFileDialog();
+                sf1.Title = "保存导出文件";
+                sf1.FileName = "信息摘要导出.txt";
+                sf1.Filter = "txt文档|*.txt";
+                if (sf1.ShowDialog(this) == true)
+                {
+                    if (File.Exists(sf1.FileName))
+                    {
+                        File.Delete(sf1.FileName);
+                    }
+
+                    StreamWriter sw = new StreamWriter(sf1.FileName, true, Encoding.UTF8);
+                    sw.Write(输出信息.Text);
+                    sw.Flush();
+                    sw.Close();
+                    提示信息.Content = "保存完成!";
+                    BeginStoryboard((Storyboard)FindResource("提示打开"));
+                }
+            }
+            else
+            {
+                提示信息.Content = "木有信息!";
                 BeginStoryboard((Storyboard)FindResource("提示打开"));
             }
+
         }
 
         private void 拖放_Drop(object sender, DragEventArgs e)
@@ -331,11 +345,18 @@ namespace Information_summary
                     输出信息.Text += "\n";
                 }));
             }
+
             Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
             {
                 加载条.IsIndeterminate = false;
             }));
 
+            Digest_algorithm.Optimization.FlushMemory();
+        }
+
+        private void 版权_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Process.Start("https://github.com/xingchuanzhen/Minecraft_Bypass_the_program");
         }
     }
 }
