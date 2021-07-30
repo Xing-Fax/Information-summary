@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace Information_summary.Digest_algorithm
 {
-    class SHA512
+    class RIPEMD160
     {
         /// <summary>
-        /// 计算文件的SHA512值
+        /// 计算文件的SHA1值
         /// </summary>
         /// <param name="file">文件路径</param>
         /// <returns>返回全部大写字符串</returns>
-        public static string Hash_SHA_512(string file)
+        public static string Hash_HMACRIPEMD160(string file)
         {
             FileStream stream = new FileStream(file, FileMode.Open);
-            SHA512Managed Sha512 = new SHA512Managed();
-            byte[] by = Sha512.ComputeHash(stream);
+            RIPEMD160Managed Ripemd160 = new RIPEMD160Managed();
+            byte[] by = Ripemd160.ComputeHash(stream);
             stream.Close();
-            return BitConverter.ToString(by).Replace("-", "").ToUpper(); 
+            return BitConverter.ToString(by).Replace("-", "").ToUpper();
         }
     }
 }

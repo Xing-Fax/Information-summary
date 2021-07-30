@@ -82,6 +82,7 @@
     <Compile Include="Digest_algorithm\CRC32.cs" />
     <Compile Include="Digest_algorithm\MD5.cs" />
     <Compile Include="Digest_algorithm\Optimization.cs" />
+    <Compile Include="Digest_algorithm\RIPEMD160.cs" />
     <Compile Include="Digest_algorithm\SHA1.cs" />
     <Compile Include="Digest_algorithm\SHA256.cs" />
     <Compile Include="Digest_algorithm\SHA384.cs" />

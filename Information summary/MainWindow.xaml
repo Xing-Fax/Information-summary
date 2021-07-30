@@ -1,4 +1,4 @@
-﻿<Window x:Name="主窗体" x:Class="Information_summary.MainWindow"
+﻿<Window x:Name="主窗体" x:Class= "Information_summary.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:xv="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -254,13 +254,14 @@
                 <CheckBox x:Name="类型" Content="文件类型" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="173.6" Width="140" />
                 <Label x:Name="文件信息" Content="文件信息：" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
             </Canvas>
-            <Canvas x:Name="算法选择" Margin="170,46.4,164,47">
+            <Canvas x:Name="算法选择" Margin="170,46.4,10,47">
                 <CheckBox x:Name="MD5" Content="MD5" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="23.6" Width="140" />
                 <CheckBox x:Name="CRC32" Content="CRC32" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="53.6" Width="140" />
-                <CheckBox x:Name="SHA1" Content="SHA-1" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="83.6" Width="140" />
-                <CheckBox x:Name="SHA256" Content="SHA-256" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="113.6" Width="140" />
-                <CheckBox x:Name="SHA384" Content="SHA-384" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="143.6" Width="140" />
-                <CheckBox x:Name="SHA512" Content="SHA-512" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="173.6" Width="140" />
+                <CheckBox x:Name="SHA1" Content="SHA-1" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="113.6" Width="140" />
+                <CheckBox x:Name="SHA256" Content="SHA-256" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="143.6" Width="140" />
+                <CheckBox x:Name="SHA384" Content="SHA-384" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="173.6" Width="140" />
+                <CheckBox x:Name="SHA512" Content="SHA-512" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="150" Canvas.Top="23.6" Width="140" />
+                <CheckBox x:Name="Ripemd" Content="RIPEMD160" Style="{StaticResource MaterialDesignCheckBox}" Height="30" Canvas.Left="10" Canvas.Top="83.6" Width="140" />
                 <Label x:Name="摘要算法" Content="摘要算法：" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
             </Canvas>
             <Label xv:Name="版权" Content="Copyright © xcz  2021" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="307.923,263.4,0,0" Width="166.077" HorizontalContentAlignment="Right" MouseUp="版权_MouseUp"/>

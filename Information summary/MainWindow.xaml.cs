@@ -73,6 +73,7 @@ namespace Information_summary
 
             Properties.Settings.Default.MD5 = (bool)MD5.IsChecked;
             Properties.Settings.Default.CRC32 = (bool)CRC32.IsChecked;
+            Properties.Settings.Default.RIPEMD160 = (bool)Ripemd.IsChecked;
             Properties.Settings.Default.SHA1 = (bool)SHA1.IsChecked;
             Properties.Settings.Default.SHA256 = (bool)SHA256.IsChecked;
             Properties.Settings.Default.SHA384 = (bool)SHA384.IsChecked;
@@ -136,6 +137,7 @@ namespace Information_summary
 
             MD5.IsChecked = Properties.Settings.Default.MD5;
             CRC32.IsChecked = Properties.Settings.Default.CRC32;
+            Ripemd.IsChecked = Properties.Settings.Default.RIPEMD160;
             SHA1.IsChecked = Properties.Settings.Default.SHA1;
             SHA256.IsChecked = Properties.Settings.Default.SHA256;
             SHA384.IsChecked = Properties.Settings.Default.SHA384;
@@ -169,7 +171,7 @@ namespace Information_summary
 
         private void calculate()
         {
-            bool[] st = new bool[13];
+            bool[] st = new bool[14];
             #region
             st[0] = (bool)名称.IsChecked;
             st[1] = (bool)大小.IsChecked;
@@ -183,6 +185,7 @@ namespace Information_summary
             st[9] = (bool)SHA256.IsChecked;
             st[10] = (bool)SHA384.IsChecked;
             st[11] = (bool)SHA512.IsChecked;
+            st[12] = (bool)Ripemd.IsChecked;
             #endregion
             bool whether = false;
             for (int i = 0; i < st.Length; i++)
@@ -256,87 +259,93 @@ namespace Information_summary
 
         void bw_DoWork2(object sender, DoWorkEventArgs e)//后台
         {
-            bool[] st = new bool[13];
-            System.Diagnostics.FileVersionInfo info;
+            bool[] st = new bool[14];
+            FileVersionInfo info;
             FileInfo fi;
             string str = "";
             for (int i = 0; i < Number_file.Count; i++)
             {
                 if (((bool[])(e.Argument))[0])
                 {
-                    str  = "文件名称：   " + System.IO.Path.GetFileName(Number_file[i].ToString()) + "\n";
+                    str  = "文件名称：       " + System.IO.Path.GetFileName(Number_file[i].ToString()) + "\n";
                     Assignment(str);
                 }
 
                 if (((bool[])(e.Argument))[1])
                 {
-                    System.IO.FileInfo fileInfo = null;
-                    fileInfo = new System.IO.FileInfo(Number_file[i].ToString());
-                    str = "文件大小：   " + System.Math.Ceiling(fileInfo.Length / 1.0) + " 字节" + "\n";
+                    FileInfo fileInfo = null;
+                    fileInfo = new FileInfo(Number_file[i].ToString());
+                    str = "文件大小：       " + Math.Ceiling(fileInfo.Length / 1.0) + " 字节" + "\n";
                     Assignment(str);
                 }
 
                 if (((bool[])(e.Argument))[2])
                 {
-                    info = System.Diagnostics.FileVersionInfo.GetVersionInfo(Number_file[i].ToString());
-                    if (info.FileVersion != null) { str = "文件版本：   " + info.FileVersion + "\n"; }
-                    else { str = "文件版本：   " + "暂无信息.." + "\n"; }
+                    info = FileVersionInfo.GetVersionInfo(Number_file[i].ToString());
+                    if (info.FileVersion != null) { str = "文件版本：       " + info.FileVersion + "\n"; }
+                    else { str = "文件版本：       " + "暂无信息.." + "\n"; }
                     Assignment(str);
                 }
 
                 if (((bool[])(e.Argument))[3])
                 {
                     fi = new FileInfo(Number_file[i].ToString());
-                    str = "创建日期：   " + fi.CreationTime.ToString() + "\n";
+                    str = "创建日期：       " + fi.CreationTime.ToString() + "\n";
                     Assignment(str);
                 }
 
                 if (((bool[])(e.Argument))[4])
                 {
                     fi = new FileInfo(Number_file[i].ToString());
-                    str = "修改日期：   " + fi.LastWriteTime + "\n";
+                    str = "修改日期：       " + fi.LastWriteTime + "\n";
                     Assignment(str);
                 }
 
                 if (((bool[])(e.Argument))[5])
                 {
-                    str = "文件类型：   " + System.IO.Path.GetExtension(Number_file[i].ToString()).Replace(".", "") + " 文件\n";
-                    Assignment(str);
-                }
-
-                if (((bool[])(e.Argument))[6])
-                {
-                    str = "MD5值：     " + Digest_algorithm.MD5.GetMD5HashFromFile(Number_file[i].ToString()).ToUpper() + "\n";
+                    str = "文件类型：       " + System.IO.Path.GetExtension(Number_file[i].ToString()).Replace(".", "") + " 文件\n";
                     Assignment(str);
                 }
 
                 if (((bool[])(e.Argument))[7])
                 {
-                    str = "CRC32值：  " + Digest_algorithm.CRC32.GetFileCRC32(Number_file[i].ToString()) + "\n";
+                    str = "CRC32值：      " + Digest_algorithm.CRC32.GetFileCRC32(Number_file[i].ToString()) + "\n";
+                    Assignment(str);
+                }
+
+                if (((bool[])(e.Argument))[6])
+                {
+                    str = "MD5值：         " + Digest_algorithm.MD5.GetMD5HashFromFile(Number_file[i].ToString()).ToUpper() + "\n";
+                    Assignment(str);
+                }
+
+                if (((bool[])(e.Argument))[12])
+                {
+                    str = "RIPEMD-160：" + Digest_algorithm.RIPEMD160.Hash_HMACRIPEMD160(Number_file[i].ToString()).ToUpper() + "\n";
                     Assignment(str);
                 }
 
                 if (((bool[])(e.Argument))[8])
                 {
-                    str= "SHA1值：    " + Digest_algorithm.SHA1.Hash_SHA_1(Number_file[i].ToString()) + "\n";
+                    str= "SHA1值：        " + Digest_algorithm.SHA1.Hash_SHA_1(Number_file[i].ToString()) + "\n";
                     Assignment(str);
                 }
 
                 if (((bool[])(e.Argument))[9])
                 {
-                    str = "SHA256值：" + Digest_algorithm.SHA256.Hash_SHA_256(Number_file[i].ToString()) + "\n";
+                    str = "SHA256值：    " + Digest_algorithm.SHA256.Hash_SHA_256(Number_file[i].ToString()) + "\n";
                     Assignment(str);
                 }
 
                 if (((bool[])(e.Argument))[10])
                 {
-                    str = "SHA384值：" + Digest_algorithm.SHA384.Hash_SHA_384(Number_file[i].ToString()) + "\n";
+                    str = "SHA384值：    " + Digest_algorithm.SHA384.Hash_SHA_384(Number_file[i].ToString()) + "\n";
                     Assignment(str);
                 }
 
                 if (((bool[])(e.Argument))[11])
                 {
-                    str = "SHA512值：" + Digest_algorithm.SHA512.Hash_SHA_512(Number_file[i].ToString()) + "\n";
+                    str = "SHA512值：    " + Digest_algorithm.SHA512.Hash_SHA_512(Number_file[i].ToString()) + "\n";
                     Assignment(str);
                 }
 
