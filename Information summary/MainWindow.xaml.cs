@@ -69,7 +69,8 @@ namespace Information_summary
             Properties.Settings.Default.文件大小 = (bool)大小.IsChecked;
             Properties.Settings.Default.创建日期 = (bool)创建.IsChecked;
             Properties.Settings.Default.修改日期 = (bool)修改.IsChecked;
-            Properties.Settings.Default.文件类型 = (bool)版本.IsChecked;
+            Properties.Settings.Default.版本信息 = (bool)版本.IsChecked;
+            Properties.Settings.Default.文件类型 = (bool)类型.IsChecked;
 
             Properties.Settings.Default.MD5 = (bool)MD5.IsChecked;
             Properties.Settings.Default.CRC32 = (bool)CRC32.IsChecked;
@@ -122,18 +123,21 @@ namespace Information_summary
         {
             InitializeComponent();
             //校验自身
+
             //if (Checkx.Document_verification(Process.GetCurrentProcess().MainModule.FileName) != true)
             //{
             //    MessageBox.Show("签名校验失败,程序可能被篡改,轻击确定以退出程序", "警告");
             //    Environment.Exit(0);
             //}
+
             #region
             前端显示.IsChecked = Properties.Settings.Default.前端显示;
             名称.IsChecked = Properties.Settings.Default.文件名称;
             大小.IsChecked = Properties.Settings.Default.文件大小;
             创建.IsChecked = Properties.Settings.Default.创建日期;
             修改.IsChecked = Properties.Settings.Default.修改日期;
-            版本.IsChecked = Properties.Settings.Default.文件类型;
+            版本.IsChecked = Properties.Settings.Default.版本信息;
+            类型.IsChecked = Properties.Settings.Default.文件类型;
 
             MD5.IsChecked = Properties.Settings.Default.MD5;
             CRC32.IsChecked = Properties.Settings.Default.CRC32;
@@ -366,6 +370,21 @@ namespace Information_summary
         private void 版权_MouseUp(object sender, MouseButtonEventArgs e)
         {
             Process.Start("https://github.com/xingchuanzhen/Minecraft_Bypass_the_program");
+        }
+
+        private void 关于_Click(object sender, RoutedEventArgs e)
+        {
+            BeginStoryboard((Storyboard)FindResource("关于打开"));
+        }
+
+        private void 关闭关于_Click(object sender, RoutedEventArgs e)
+        {
+            BeginStoryboard((Storyboard)FindResource("关于关闭"));
+        }
+
+        private void 图标_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Process.Start("https://github.com/xingchuanzhen/Information-summary");
         }
     }
 }
