@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Information_summary.Digest_algorithm
@@ -60,8 +61,10 @@ namespace Information_summary.Digest_algorithm
             {
                 return FOO;
             }
-            //读取文件字节数
-            byte[] bytes = File.ReadAllBytes(filePath);
+            //读取字节流
+            FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            byte[] bytes = new byte[fs.Length];
+            fs.Read(bytes, 0, bytes.Length);
 
             long resultCrcValue = 0x00000000ffffffffL;
             for (int i = 0; i < bytes.Length; i++)
@@ -69,10 +72,13 @@ namespace Information_summary.Digest_algorithm
                 int index = (int)((resultCrcValue ^ bytes[i]) & 0xff);
                 resultCrcValue = Crc32Table[index] ^ (resultCrcValue >> 8);
             }
+            fs.Close();
             resultCrcValue = resultCrcValue ^ 0x00000000ffffffffL;
 
             return resultCrcValue.ToString("X");
         }
+
+
 
         /// <summary>
         /// 从十六进制转换成其他进制 (无符号数)
