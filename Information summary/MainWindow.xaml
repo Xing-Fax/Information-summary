@@ -280,7 +280,7 @@
             <Button x:Name="关闭窗体" Style="{StaticResource MaterialDesignIconButton}" ToolTip="关闭" Margin="532.664,1.333,1.335,-1.334" Height="30" Width="30" Foreground="{Binding Background, ElementName=添加}" Click="关闭窗体_Click">
                 <materialDesign:PackIcon Kind="Close"   />
             </Button>
-            <Button x:Name="最小化" Style="{StaticResource MaterialDesignIconButton}" ToolTip="关闭" Margin="502.664,1.334,31.335,-1.333" Height="30" Width="30" Foreground="{Binding Background, ElementName=添加}" Click="最小化_Click">
+            <Button x:Name="最小化" Style="{StaticResource MaterialDesignIconButton}" ToolTip="最小化" Margin="502.664,1.334,31.335,-1.333" Height="30" Width="30" Foreground="{Binding Background, ElementName=添加}" Click="最小化_Click">
                 <materialDesign:PackIcon Kind="Minus"  />
             </Button>
             <ToggleButton x:Name="前端显示"
@@ -299,7 +299,7 @@
       Kind="Pin" />
                 </materialDesign:ToggleButtonAssist.OnContent>
             </ToggleButton>
-            <Button x:Name="关于" Style="{StaticResource MaterialDesignIconButton}" ToolTip="关闭" Margin="472.664,1.333,61.335,-1.334" Height="30" Width="30" Foreground="{Binding Background, ElementName=添加}" Click="关于_Click">
+            <Button x:Name="关于" Style="{StaticResource MaterialDesignIconButton}" ToolTip="关于" Margin="472.664,1.333,61.335,-1.334" Height="30" Width="30" Foreground="{Binding Background, ElementName=添加}" Click="关于_Click">
                 <materialDesign:PackIcon Kind="InformationVariant"  />
             </Button>
 
@@ -315,7 +315,7 @@
                 </TransformGroup>
             </Grid.RenderTransform>
             <Rectangle x:Name="算法背景" Fill="White" HorizontalAlignment="Left" Height="297" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="484" Stroke="{Binding Background, ElementName=添加}"/>
-            <Label x:Name="算法标题" Content="你可以在这里选择生成摘要的详细设置" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,0,0,0" Width="290" Height="30" FontWeight="Bold" FontSize="16" FontFamily="微软雅黑" VerticalContentAlignment="Bottom"/>
+            <Label x:Name="算法标题" Content="你可以在这里选择生成摘要的详细设置" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,0,0,0" Width="290" Height="30" FontSize="14" FontFamily="微软雅黑" VerticalContentAlignment="Bottom"/>
             <materialDesign:PackIcon x:Name="算法图标" Kind="CogOutline" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="30" Margin="0,3.33,0,0" Foreground="{Binding Background, ElementName=添加}"/>
             <Rectangle x:Name="算法边框" HorizontalAlignment="Left" Height="252" Margin="10,35,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="464" Stroke="{Binding Background, ElementName=添加}"/>
             <Button x:Name="关闭算法" Style="{StaticResource MaterialDesignIconButton}" ToolTip="关闭" Margin="450.667,3.33,3.332,263.67" Height="30" Width="30" Foreground="{Binding Background, ElementName=添加}" Click="关闭算法_Click">
@@ -342,7 +342,7 @@
             </Canvas>
             <Label x:Name="版权" Content="Copyright © xcz  2021" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="307.923,263.4,0,0" Width="166.077" HorizontalContentAlignment="Right" MouseUp="版权_MouseUp"/>
         </Grid>
-        <Grid x:Name="提示" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="100" Margin="232,360,0,0" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="提示" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="100" Margin="232,360,0,0" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -364,7 +364,7 @@
             <Rectangle x:Name="rectangle" Stroke="#FF000000" StrokeThickness="3" StrokeDashArray="2 2"
                                                        SnapsToDevicePixels="True" Margin="75,130,75,92" RadiusX="5" RadiusY="5"/>
         </Grid>
-        <Grid x:Name="关于界面" Margin="57,79,57,48" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+        <Grid x:Name="关于界面" Margin="57,64,57,63" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
